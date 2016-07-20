@@ -2,6 +2,7 @@
  * Angular 2 decorators and services
  */
 import { Component, ViewEncapsulation } from '@angular/core';
+import { SEMANTIC_COMPONENTS } from "ng-semantic";
 
 import { AppState } from './app.service';
 
@@ -10,52 +11,31 @@ import { AppState } from './app.service';
  * Top Level Component
  */
 @Component({
+  directives: [SEMANTIC_COMPONENTS],
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
     './app.style.css'
   ],
-  template: `
-    <nav>
-      <span>
-        <a [routerLink]=" ['./'] ">
-          Index
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./home'] ">
-          Home
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./detail'] ">
-          Detail
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./about'] ">
-          About
-        </a>
-      </span>
-    </nav>
-
-    <main>
+  template: `<main class="ui container">
+        <sm-menu title="Angular2" class="ui menu inverted teal" logo="/assets/img/angularclass-avatar.png">
+          <a sm-item [routerLink]=" ['./home']"  icon="home" class="item">Home</a>
+          <a sm-item [routerLink]=" ['./detail']"  icon="list" class="item">Detail</a>
+          <a sm-item [routerLink]=" ['./about']"  icon="building" class="item">About</a>
+      </sm-menu>
       <router-outlet></router-outlet>
-    </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
-    <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
-    </footer>
+   
+       <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+       
+      <footer class="ui menu text bound bottom sticky fluid fixed">
+        <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+        <div>
+          <a [href]="url">
+            <img [src]="angularclassLogo" width="25%">
+          </a>
+        </div>
+      </footer>
+ </main>
   `
 })
 export class App {

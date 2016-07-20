@@ -17,13 +17,20 @@
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
 
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.1/semantic.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.1/semantic.min.js"></script>
+
 
 </head>
 
 <body>
 
   <app>
-    Loading...
+    <div class="ui active inverted dimmer">
+      <div class="ui text large loader">Loading</div>
+    </div>
   </app>
 
   <!-- Google Analytics: change UA-71073175-1 to be your site's ID -->
